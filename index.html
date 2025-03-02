@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolui - Innowacyjne Rozwiązania Hydrauliczne</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #1abc9c;
+  --light-color: #F5F5FC;
+  --dark-color: #121212;
+  --text-color: #333;
+  --gradient-bg: linear-gradient(135deg, #3498db, #1abc9c);
+  --shadow-color: rgba(52, 152, 219, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-color);
+  overflow-x: hidden;
+  background-color: #FAFAFA;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(52, 152, 219, 0.95);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+nav.scrolled {
+  padding: 0.6rem 1rem;
+  background-color: rgba(44, 62, 80, 0.98);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active {
+  transform: rotate(90deg);
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav-links a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover:after {
+  width: 70%;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), 
+              url('/api/placeholder/1920/1080');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.4) 0%, rgba(26, 188, 156, 0.4) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 900px;
+  padding: 2rem;
+  margin-top: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1.2s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  max-width: 80%;
+  margin: 0 auto 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.2s ease 0.3s forwards;
+}
+
+.hero-content .btn {
+  opacity: 0;
+  animation: fadeIn 1.2s ease 0.6s forwards;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn:hover:before {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--gradient-bg);
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  margin-left: 1rem;
+}
+
+/* Sections */
+.section {
+  padding: 8rem 2rem;
+}
+
+.about, .features {
+  background: var(--light-color);
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 2rem;
+}
+
+.services, .testimonials {
+  background: white;
+  padding: 8rem 2rem;
+}
+
+.contact {
+  background: var(--gradient-bg);
+  color: white;
+  padding: 8rem 2rem;
+}
+
+/* Section titles */
+.section-title, h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.section-title:after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.contact h2 {
+  color: white;
+}
+
+.contact h2:after {
+  background: white;
+}
+
+/* About Section */
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text {
+  margin-top: 1.5rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.service-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.service-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.service-card:hover:before {
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.2);
+  color: var(--primary-color);
+}
+
+.service-card h3 {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+/* Gallery */
+.gallery {
+  padding: 8rem 2rem;
+  background: var(--light-color);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 188, 156, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay-content {
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.gallery-overlay-content h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Contact */
+.contact-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-info {
+  padding: 2rem 0;
+}
+
+.contact-info p {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  margin-right: 1rem;
+  width: 24px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-control {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.form-submit {
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-submit:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.map {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 4rem 2rem 1rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section h4:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.footer-section p {
+  margin-bottom: 0.8rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Features Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.feature-card:after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.feature-card:hover:after {
+  transform: scale(2);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  font-size: 3.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--primary-color);
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+/* Testimonials */
+.testimonials {
+  background: var(--light-color);
+  position: relative;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.testimonial-text:before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--accent-color);
+  opacity: 0.2;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+
+.author-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.author-info p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Counter Section */
+.counter-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.counter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.counter-item {
+  padding: 2rem;
+  flex: 1;
+  min-width: 200px;
+  margin: 1rem;
+}
+
+.counter-value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.counter-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Call to Action */
+.cta-section {
+  padding: 8rem 2rem;
+  background: var(--light-color);
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+.cta-container p {
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+}
+
+/* Animated cards */
+.animated-card {
+  transition: all 0.5s ease;
+}
+
+.animated-card:hover {
+  transform: translateY(-15px);
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-color);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-content {
+  text-align: center;
+  color: white;
+}
+
+.preloader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: var(--accent-color);
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Scrollbar */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 99;
+}
+
+.scroll-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top i {
+  font-size: 1.2rem;
+}
+
+/* The Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Cookie alert */
+.cookie-alert {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 1rem;
+  z-index: 1000;
+  display: none;
+}
+
+.cookie-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cookie-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.cookie-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.accept-cookies {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+}
+
+.reject-cookies {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+/* Newsletter */
+.newsletter {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 50px 0 0 50px;
+}
+
+.newsletter-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  background-color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .about-grid, .contact-content, .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-card, .counter-item {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    padding: 6rem 2rem 2rem;
+    flex-direction: column;
+    text-align: left;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .services-grid, .gallery-grid, .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .counter-container {
+    flex-direction: column;
+  }
+  
+  .counter-item {
+    margin: 1rem 0;
+  }
+}
+
+/* Theme switcher */
+.theme-switcher {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.theme-switcher button {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0.5rem 0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-switcher button:hover {
+  transform: scale(1.2);
+}
+
+.theme-blue {
+  background-color: #3498db;
+}
+
+.theme-green {
+  background-color: #2ecc71;
+}
+
+.theme-purple {
+  background-color: #9b59b6;
+}
+
+.theme-orange {
+  background-color: #e67e22;
+}
+
+/* Dark mode */
+.dark-mode {
+  --light-color: #232323;
+  --text-color: #f5f5f5;
+  background-color: var(--dark-color);
+}
+
+.dark-mode .service-card,
+.dark-mode .feature-card,
+.dark-mode .testimonial-card {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+}
+
+.dark-mode .service-card h3,
+.dark-mode .feature-card h3 {
+  color: #f5f5f5;
+}
+
+.dark-mode .testimonial-card .author-info p {
+  color: #aaa;
+}
+
+/* Loading animation for images */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Typing effect */
+.typing-effect::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+@keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    40% {transform: translateY(-30px);} 
+    60% {transform: translateY(-15px);} 
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .hero-content h1 {
+      font-size: 3rem;
+    }
+    
+    .about-grid, .contact-content, .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .feature-card, .counter-item {
+      margin-bottom: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+    
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      height: 100vh;
+      background-color: var(--secondary-color);
+      padding: 6rem 2rem 2rem;
+      flex-direction: column;
+      text-align: left;
+      transition: all 0.5s ease;
+      z-index: 1000;
+    }
+    
+    .nav-links.active {
+      right: 0;
+    }
+    
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .btn {
+      padding: 0.8rem 1.8rem;
+      font-size: 0.9rem;
+    }
+    
+    .services-grid, .gallery-grid, .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .counter-container {
+      flex-direction: column;
+    }
+    
+    .counter-item {
+      margin: 1rem 0;
+    }
+  }
+      </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <h3>Evolui</h3>
+            <p>Ładowanie...</p>
+        </div>
+    </div>
+    
+    <!-- Scroll to top button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Cookie Alert -->
+    <div class="cookie-alert">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>Nasza strona używa plików cookies, aby zapewnić najlepsze doświadczenia. Kontynuując przeglądanie strony, zgadzasz się na użycie plików cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept-cookies">Akceptuję</button>
+                <button class="cookie-btn reject-cookies">Odrzucam</button>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-wrench"></i>
+                Evolui
+            </a>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#start">Start</a>
+                <a href="#about">O Nas</a>
+                <a href="#services">Usługi</a>
+                <a href="#gallery">Realizacje</a>
+                <a href="#testimonials">Opinie</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="start" class="hero">
+        <div class="hero-content">
+            <h1>Profesjonalne Usługi Hydrauliczne Wrocław</h1>
+            <p>Szybka pomoc hydrauliczna - Niezawodność i jakość od 2018 roku</p>
+            <a href="#contact" class="btn btn-primary ripple">Wezwij Hydraulika</a>
+            <a href="#services" class="btn btn-outline ripple">Nasze Usługi</a>
+        </div>
+        <div class="particle-container"></div>
+    </section>
+
+    <section id="counter" class="counter-section">
+        <div class="counter-container">
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="counter-value" data-target="15">0</div>
+                <div class="counter-title">Wykwalifikowanych Hydraulików</div>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="counter-value" data-target="7">0</div>
+                <div class="counter-title">Lat Doświadczenia</div>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="counter-value" data-target="99">0</div>
+                <div class="counter-title">Zadowolonych Klientów (%)</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-grid">
+                <div class="about-content" data-aos="fade-right">
+                    <h2>Kim Jesteśmy</h2>
+                    <div class="about-text">
+                        <p>
+                            Evolui Plumbing to doświadczona firma hydrauliczna, oferująca kompleksowe usługi dla domów i firm. Od 2018 roku zapewniamy naszym klientom wysokiej jakości usługi hydrauliczne z gwarancją solidności i profesjonalizmu.
+                        </p>
+                        <p>
+                            Nasz zespół składa się z wykwalifikowanych hydraulików z wieloletnim doświadczeniem. Stosujemy nowoczesne technologie i najlepsze materiały, aby zapewnić trwałe i skuteczne rozwiązania hydrauliczne.
+                        </p>
+                        <ul style="list-style: none; margin-top: 2rem;">
+                            <li data-aos="fade-up" data-aos-delay="100"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 10px;"></i>Całodobowe pogotowie hydrauliczne</li>
+                            <li data-aos="fade-up" data-aos-delay="200"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 10px;"></i>Gwarancja na wszystkie wykonane prace</li>
+                            <li data-aos="fade-up" data-aos-delay="300"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 10px;"></i>Bezpłatna wycena przed rozpoczęciem prac</li>
+                            <li data-aos="fade-up" data-aos-delay="400"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 10px;"></i>Przejrzyste zasady rozliczeń</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="/api/placeholder/600/400" alt="Profesjonalne usługi hydrauliczne" class="transform-3d" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+        </div>
+        <div class="water-animation"></div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 data-aos="fade-up">Dlaczego Evolui Wrocław?</h2>
+        <div class="features-grid">
+            <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Profesjonalizm</h3>
+                <p>Wykonujemy każdą usługę starannie, zgodnie z najwyższymi standardami branżowymi</p>
+            </div>
+            <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Szybkość</h3>
+                <p>Przyjeżdżamy na miejsce w ciągu 60 minut od zgłoszenia awarii</p>
+            </div>
+            <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Gwarancja</h3>
+                <p>Zapewniamy pisemną gwarancję na wszystkie nasze usługi i użyte materiały</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 data-aos="fade-up">Nasze Usługi</h2>
+        <div class="services-grid">
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Usługi Hydrauliczne</h3>
+                <p>Kompleksowe wykonanie instalacji hydraulicznych i pogotowie hydrauliczne</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Odnawialne Źródła Energii</h3>
+                <p>Instalacja i serwis pomp ciepła oraz innych odnawialnych źródeł energii</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <h3>Montaż Wentylacji i Rekuperacji</h3>
+                <p>Montaż rekuperacji oraz serwis wentylacji w domach i firmach</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3>Klimatyzacja</h3>
+                <p>Profesjonalny montaż i serwis klimatyzacji w domach i biurach</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-temperature-high"></i>
+                </div>
+                <h3>Instalatorstwo Grzewcze</h3>
+                <p>Ogrzewanie podłogowe, montaż pieców CO i mat grzewczych</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-fire-alt"></i>
+                </div>
+                <h3>Usługi Gazowe</h3>
+                <p>Montaż pieców gazowych oraz serwis instalacji gazowych</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="cta-container">
+            <h2 data-aos="fade-up">Potrzebujesz Hydraulika we Wrocławiu?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Zadzwoń do nas już teraz, aby umówić wizytę lub skorzystać z pogotowia hydraulicznego. Rozwiążemy Twój problem szybko i skutecznie!</p>
+            <a href="#contact" class="btn btn-primary ripple pulse" data-aos="fade-up" data-aos-delay="200">Wezwij hydraulika</a>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 data-aos="fade-up">Co Mówią Nasi Klienci</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-grid">
+                <div class="testimonial-card animated-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-text">
+                        <p>Hydraulik z Evolui pojawił się u mnie w 40 minut po telefonie. Szybko zdiagnozował problem z cieknącym kranem i naprawił go profesjonalnie. Cena zgodna z wyceną, bez ukrytych kosztów.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Jan Kowalski</h4>
+                            <p>Klient indywidualny</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animated-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-text">
+                        <p>Zdecydowanie polecam wykonali solidnie usługę, nic nie zginęło z budowy. Prace wykonali do lasera tynkarze i kafelkarz nie będą musieli nic przerabiać, posprzątali po sobie. Jestem w szoku - pozytywnym, do tego nie kroją z kasy jak inne firmy to robią, jeśli potrzebujecie hydraulika nie zastanawiajcie się!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Detektyw T</h4>
+                            <p>Klient indywidualny</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animated-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-text">
+                        <p>Ekipa Evolui wykonała kompleksowy remont naszej łazienki. Prace przebiegły sprawnie, a efekt przeszedł nasze oczekiwania. Solidna firma z uczciwym podejściem do klienta.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Marek Wiśniewski</h4>
+                            <p>Właściciel mieszkania</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 data-aos="fade-up">Nasze Realizacje</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="/api/placeholder/400/300" alt="Modernizacja łazienki" class="lazy-load" data-src="/api/placeholder/400/300">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <h4>Modernizacja łazienki</h4>
+                        <p>Kompleksowy remont z wymianą instalacji</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                <img src="/api/placeholder/400/300" alt="Instalacja kotła gazowego" class="lazy-load" data-src="/api/placeholder/400/300">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <h4>Montaż kotła gazowego</h4>
+                        <p>Nowoczesny system ogrzewania w domu jednorodzinnym</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="/api/placeholder/400/300" alt="Udrażnianie kanalizacji" class="lazy-load" data-src="/api/placeholder/400/300">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <h4>Udrażnianie kanalizacji</h4>
+                        <p>Profesjonalne czyszczenie rur specjalistycznym sprzętem</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                <img src="/api/placeholder/400/300" alt="Instalacja przemysłowa" class="lazy-load" data-src="/api/placeholder/400/300">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <h4>Instalacja przemysłowa</h4>
+                        <p>System wodociągowy w zakładzie produkcyjnym</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <img src="/api/placeholder/400/300" alt="Wymiana grzejników" class="lazy-load" data-src="/api/placeholder/400/300">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <h4>Wymiana grzejników</h4>
+                        <p>Montaż nowoczesnych grzejników w mieszkaniu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                <img src="/api/placeholder/400/300" alt="Naprawa wycieku" class="lazy-load" data-src="/api/placeholder/400/300">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <h4>Naprawa wycieku</h4>
+                        <p>Szybka interwencja i lokalizacja ukrytego wycieku</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for gallery images -->
+    <div class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" src="" alt="Powiększone zdjęcie">
+    </div>
+
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <div class="contact-info" data-aos="fade-right">
+                <h2>Skontaktuj Się z Nami</h2>
+                <p><i class="fas fa-map-marker-alt"></i> ul. Krępicka 1/6, 54-018 Wrocław</p>
+                <p><i class="fas fa-phone"></i> +48 787 011 313</p>
+                <p><i class="fas fa-envelope"></i> biuro.evolui@gmail.com</p>
+                <p><i class="fas fa-clock"></i>Godziny Otwarcia: Pon-Pt: 8:00-19:00, Sob-Niedz: Zamknięte</p>
+            </div>
+            <div class="map" data-aos="fade-left">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2502.9053010553826!2d16.8673103!3d51.1470974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470feb0d7fd78465%3A0x2cc7dbea90d2aa01!2sEVOLUI%20SP%20Z%20O.%20O.%20Us%C5%82ugi%20hydrauliczne%20I%20OGRZEWANIE%20l%20POMPY%20CIEP%C5%81A%20I%20klimatyzacja%7C%20REKUPERACJA%20%7C%20Budowa%20dom%C3%B3w!5e0!3m2!1spl!2spl!4v1740829143570!5m2!1spl!2spl" width="100%" height="450" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Evolui</h4>
+                <p>Profesjonalne usługi hydrauliczne dla domu i firmy</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Godziny Otwarcia</h4>
+                <p>Pogotowie hydrauliczne: 24/7</p>
+                <p>Poniedziałek - Piątek: 8:00 - 19:00</p>
+                <p>Sobota: Zamknięte</p>
+                <p>Niedziela: Zamknięte</p>
+            </div>
+            <div class="footer-section">
+                <h4>Szybki Kontakt</h4>
+                <p><i class="fas fa-map-marker-alt"></i> ul. Krępicka 1/6, 54-018 Wrocław</p>
+                <p><i class="fas fa-phone"></i> +48 787 011 313</p>
+                <p><i class="fas fa-envelope"></i> biuro.evolui@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Evolui Sp. z o.o - Wszystkie prawa zastrzeżone | Strona internetowa stworzona przez kpstrony.pl</i>
+        </div>
+    </footer>
+  
+      <!-- JavaScript Libraries -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+      
+      <!-- Main JavaScript -->
+      <script>
+          // Wait for the DOM to be fully loaded
+          document.addEventListener('DOMContentLoaded', function() {
+              // Preloader
+              setTimeout(function() {
+                  document.querySelector('.preloader').style.display = 'none';
+                  document.body.classList.add('loaded');
+              }, 1500);
+              
+              // Initialize AOS (Animate on Scroll)
+              AOS.init({
+                  duration: 800,
+                  easing: 'ease',
+                  once: true,
+                  offset: 100
+              });
+  
+              // Navigation scroll effect
+              window.addEventListener('scroll', function() {
+                  const nav = document.querySelector('nav');
+                  const scrollTop = window.scrollY;
+                  
+                  if (scrollTop > 100) {
+                      nav.classList.add('scrolled');
+                      document.querySelector('.scroll-top').classList.add('active');
+                  } else {
+                      nav.classList.remove('scrolled');
+                      document.querySelector('.scroll-top').classList.remove('active');
+                  }
+              });
+              
+              // Mobile Navigation Toggle
+              const hamburger = document.querySelector('.hamburger');
+              const navLinks = document.querySelector('.nav-links');
+              
+              hamburger.addEventListener('click', function() {
+                  hamburger.classList.toggle('active');
+                  navLinks.classList.toggle('active');
+              });
+              
+              // Close mobile menu when clicking on a link
+              document.querySelectorAll('.nav-links a').forEach(link => {
+                  link.addEventListener('click', function() {
+                      hamburger.classList.remove('active');
+                      navLinks.classList.remove('active');
+                  });
+              });
+              
+              // Smooth scrolling for anchor links
+              document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                  anchor.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      
+                      const targetId = this.getAttribute('href');
+                      if (targetId === '#') return;
+                      
+                      const targetElement = document.querySelector(targetId);
+                      if (targetElement) {
+                          window.scrollTo({
+                              top: targetElement.offsetTop - 80,
+                              behavior: 'smooth'
+                          });
+                      }
+                  });
+              });
+              
+              // Scroll to top button
+              document.querySelector('.scroll-top').addEventListener('click', function() {
+                  window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth'
+                  });
+              });
+              
+              // Counter animation
+              const counterSection = document.querySelector('.counter-section');
+              if (counterSection) {
+                  const counters = document.querySelectorAll('.counter-value');
+                  let counterStarted = false;
+                  
+                  function startCounter() {
+                      if (isInViewport(counterSection) && !counterStarted) {
+                          counterStarted = true;
+                          counters.forEach(counter => {
+                              const target = parseInt(counter.getAttribute('data-target'));
+                              const duration = 2000; // 2 seconds
+                              const step = target / (duration / 16); // 60fps
+                              
+                              let current = 0;
+                              const counterTimer = setInterval(() => {
+                                  current += step;
+                                  counter.textContent = Math.round(current);
+                                  
+                                  if (current >= target) {
+                                      counter.textContent = target;
+                                      clearInterval(counterTimer);
+                                  }
+                              }, 16);
+                          });
+                      }
+                  }
+                  
+                  // Check if counter section is in viewport on scroll
+                  window.addEventListener('scroll', startCounter);
+                  // Also check on page load
+                  startCounter();
+                  
+              // Gallery modal
+              const galleryItems = document.querySelectorAll('.gallery-item');
+              const modal = document.querySelector('.modal');
+              const modalImg = document.querySelector('.modal-content');
+              const closeBtn = document.querySelector('.modal-close');
+              
+              if (galleryItems.length > 0 && modal) {
+                  galleryItems.forEach(item => {
+                      item.addEventListener('click', function() {
+                          const imgSrc = this.querySelector('img').src;
+                          modal.style.display = 'block';
+                          modalImg.src = imgSrc;
+                      });
+                  });
+                  
+                  closeBtn.addEventListener('click', function() {
+                      modal.style.display = 'none';
+                  });
+                  
+                  // Close modal when clicking outside the image
+                  modal.addEventListener('click', function(e) {
+                      if (e.target === modal) {
+                          modal.style.display = 'none';
+                      }
+                  });
+              }
+              
+              // Theme switcher
+              const themeSwitcherBtns = document.querySelectorAll('.theme-switcher button');
+              
+              if (themeSwitcherBtns.length > 0) {
+                  themeSwitcherBtns.forEach(btn => {
+                      btn.addEventListener('click', function() {
+                          const theme = this.getAttribute('data-theme');
+                          changeTheme(theme);
+                      });
+                  });
+                  
+                  // Save theme preference
+                  function changeTheme(theme) {
+                      document.documentElement.style.setProperty('--primary-color', getThemeColor(theme, 'primary'));
+                      document.documentElement.style.setProperty('--accent-color', getThemeColor(theme, 'accent'));
+                      document.documentElement.style.setProperty('--gradient-bg', getThemeGradient(theme));
+                      
+                      // Save preference to localStorage
+                      localStorage.setItem('evolui-theme', theme);
+                  }
+                  
+                  function getThemeColor(theme, type) {
+                      const themes = {
+                          blue: { primary: '#3498db', accent: '#1abc9c' },
+                          green: { primary: '#2ecc71', accent: '#27ae60' },
+                          purple: { primary: '#9b59b6', accent: '#8e44ad' },
+                          orange: { primary: '#e67e22', accent: '#d35400' }
+                      };
+                      
+                      return themes[theme] ? themes[theme][type] : themes.blue[type];
+                  }
+                  
+                  function getThemeGradient(theme) {
+                      const gradients = {
+                          blue: 'linear-gradient(135deg, #3498db, #1abc9c)',
+                          green: 'linear-gradient(135deg, #2ecc71, #27ae60)',
+                          purple: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
+                          orange: 'linear-gradient(135deg, #e67e22, #d35400)'
+                      };
+                      
+                      return gradients[theme] || gradients.blue;
+                  }
+                  
+                  // Load saved theme
+                  const savedTheme = localStorage.getItem('evolui-theme');
+                  if (savedTheme) {
+                      changeTheme(savedTheme);
+                  }
+              }
+              
+              darkModeToggle.addEventListener('click', function() {
+                  document.body.classList.toggle('dark-mode');
+                  
+                  if (document.body.classList.contains('dark-mode')) {
+                      this.innerHTML = '<i class="fas fa-sun"></i>';
+                  } else {
+                      this.innerHTML = '<i class="fas fa-moon"></i>';
+                  }
+                  
+                  // Save preference
+                  const isDarkMode = document.body.classList.contains('dark-mode');
+                  localStorage.setItem('evolui-dark-mode', isDarkMode);
+              });
+              
+              // Load saved dark mode preference
+              const savedDarkMode = localStorage.getItem('evolui-dark-mode');
+              if (savedDarkMode === 'true') {
+                  document.body.classList.add('dark-mode');
+                  darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+              }
+              
+              // Cookie alert
+              const cookieAlert = document.querySelector('.cookie-alert');
+              
+              if (cookieAlert) {
+                  const acceptBtn = document.querySelector('.accept-cookies');
+                  const rejectBtn = document.querySelector('.reject-cookies');
+                  
+                  // Show cookie alert if not previously accepted
+                  if (!localStorage.getItem('evolui-cookies-accepted')) {
+                      setTimeout(() => {
+                          cookieAlert.style.display = 'block';
+                      }, 2000);
+                  }
+                  
+                  acceptBtn.addEventListener('click', function() {
+                      localStorage.setItem('evolui-cookies-accepted', 'true');
+                      cookieAlert.style.display = 'none';
+                  });
+                  
+                  rejectBtn.addEventListener('click', function() {
+                      cookieAlert.style.display = 'none';
+                  });
+              }
+              
+              // Lazy loading images
+              const lazyImages = document.querySelectorAll('.lazy-load');
+              
+              if ('IntersectionObserver' in window && lazyImages.length > 0) {
+                  const imageObserver = new IntersectionObserver((entries, observer) => {
+                      entries.forEach(entry => {
+                          if (entry.isIntersecting) {
+                              const img = entry.target;
+                              img.src = img.dataset.src;
+                              img.classList.add('loaded');
+                              observer.unobserve(img);
+                          }
+                      });
+                  });
+                  
+                  lazyImages.forEach(img => {
+                      imageObserver.observe(img);
+                  });
+              } else {
+                  // Fallback for older browsers
+                  lazyImages.forEach(img => {
+                      img.src = img.dataset.src;
+                  });
+              }
+              
+              // Testimonials slider
+              const testimonialSlider = document.querySelector('.testimonial-slider');
+              
+              if (testimonialSlider) {
+                  let currentSlide = 0;
+                  const slides = testimonialSlider.querySelectorAll('.testimonial-card');
+                  const totalSlides = slides.length;
+                  const nextBtn = testimonialSlider.querySelector('.slider-next');
+                  const prevBtn = testimonialSlider.querySelector('.slider-prev');
+                  
+                  // Set initial state
+                  updateSlider();
+                  
+                  // Next button
+                  nextBtn.addEventListener('click', function() {
+                      currentSlide = (currentSlide + 1) % totalSlides;
+                      updateSlider();
+                  });
+                  
+                  // Previous button
+                  prevBtn.addEventListener('click', function() {
+                      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                      updateSlider();
+                  });
+                  
+                  // Auto slide
+                  let slideInterval = setInterval(nextSlide, 5000);
+                  
+                  testimonialSlider.addEventListener('mouseenter', function() {
+                      clearInterval(slideInterval);
+                  });
+                  
+                  testimonialSlider.addEventListener('mouseleave', function() {
+                      slideInterval = setInterval(nextSlide, 5000);
+                  });
+                  
+                  function nextSlide() {
+                      currentSlide = (currentSlide + 1) % totalSlides;
+                      updateSlider();
+                  }
+                  
+                  function updateSlider() {
+                      slides.forEach((slide, index) => {
+                          if (index === currentSlide) {
+                              slide.style.opacity = 1;
+                              slide.style.transform = 'translateX(0)';
+                          } else {
+                              slide.style.opacity = 0;
+                              slide.style.transform = index < currentSlide ? 'translateX(-100%)' : 'translateX(100%)';
+                          }
+                      });
+                  }
+              }
+              
+              // Form validation
+              const contactForm = document.querySelector('.contact-form');
+              
+              if (contactForm) {
+                  contactForm.addEventListener('submit', function(e) {
+                      e.preventDefault();
+                      
+                      let isValid = true;
+                      const inputs = this.querySelectorAll('input, textarea');
+                      
+                      inputs.forEach(input => {
+                          if (input.required && input.value.trim() === '') {
+                              isValid = false;
+                              input.classList.add('error');
+                          } else {
+                              input.classList.remove('error');
+                          }
+                          
+                          if (input.type === 'email' && input.value.trim() !== '') {
+                              const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                              if (!emailPattern.test(input.value.trim())) {
+                                  isValid = false;
+                                  input.classList.add('error');
+                              }
+                          }
+                      });
+                      
+                      if (isValid) {
+                          // Show success message
+                          const successMessage = document.createElement('div');
+                          successMessage.className = 'form-success';
+                          successMessage.textContent = 'Dziękujemy! Twoja wiadomość została wysłana.';
+                          successMessage.style.backgroundColor = 'rgba(255,255,255,0.2)';
+                          successMessage.style.padding = '2rem';
+                          successMessage.style.borderRadius = '10px';
+                          successMessage.style.textAlign = 'center';
+                          successMessage.style.marginTop = '2rem';
+                          
+                          // Replace form with success message
+                          this.innerHTML = '';
+                          this.appendChild(successMessage);
+                          
+                          // In real world, you would send the form data to server here
+                      }
+                  });
+              }
+              
+              // Add particle effect to hero section
+              const particleContainer = document.querySelector('.particle-container');
+              
+              if (particleContainer) {
+                  for (let i = 0; i < 50; i++) {
+                      const particle = document.createElement('div');
+                      particle.className = 'particle';
+                      
+                      // Style particles
+                      particle.style.position = 'absolute';
+                      particle.style.width = Math.random() * 15 + 5 + 'px';
+                      particle.style.height = particle.style.width;
+                      particle.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                      particle.style.borderRadius = '50%';
+                      particle.style.left = Math.random() * 100 + '%';
+                      particle.style.top = Math.random() * 100 + '%';
+                      particle.style.animation = `floating ${Math.random() * 3 + 2}s ease-in-out infinite`;
+                      particle.style.animationDelay = Math.random() * 5 + 's';
+                      
+                      particleContainer.appendChild(particle);
+                  }
+              }
+              
+              // 3D tilt effect for cards with tilt-card class
+              const tiltCards = document.querySelectorAll('.tilt-card');
+              
+              tiltCards.forEach(card => {
+                  card.addEventListener('mousemove', function(e) {
+                      const rect = this.getBoundingClientRect();
+                      const x = e.clientX - rect.left;
+                      const y = e.clientY - rect.top;
+                      
+                      const centerX = rect.width / 2;
+                      const centerY = rect.height / 2;
+                      
+                      const rotateX = (y - centerY) / 10;
+                      const rotateY = (centerX - x) / 10;
+                      
+                      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                  });
+                  
+                  card.addEventListener('mouseleave', function() {
+                      this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                  });
+              });
+              
+              // Add ripple effect to elements with ripple class
+              const rippleElements = document.querySelectorAll('.ripple');
+              
+              rippleElements.forEach(element => {
+                  element.addEventListener('click', function(e) {
+                      const x = e.clientX - e.target.getBoundingClientRect().left;
+                      const y = e.clientY - e.target.getBoundingClientRect().top;
+                      
+                      const ripple = document.createElement('span');
+                      ripple.style.position = 'absolute';
+                      ripple.style.width = '0';
+                      ripple.style.height = '0';
+                      ripple.style.borderRadius = '50%';
+                      ripple.style.transform = 'translate(-50%, -50%)';
+                      ripple.style.backgroundColor = 'rgba(255,255,255,0.4)';
+                      ripple.style.left = x + 'px';
+                      ripple.style.top = y + 'px';
+                      ripple.style.animation = 'ripple 0.8s ease-out';
+                      
+                      this.appendChild(ripple);
+                      
+                      setTimeout(() => {
+                          ripple.remove();
+                      }, 800);
+                  });
+              });
+              
+              // Add keyframe for ripple animation
+              const style = document.createElement('style');
+              style.innerHTML = `
+                  @keyframes ripple {
+                      to {
+                          width: 300px;
+                          height: 300px;
+                          opacity: 0;
+                      }
+                  }
+              `;
+              document.head.appendChild(style);
+              
+              // Helper function to check if element is in viewport
+              function isInViewport(element) {
+                  const rect = element.getBoundingClientRect();
+                  return (
+                      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                      rect.bottom >= 0
+                  );
+              }
+              
+              // Newsletter subscription
+              const newsletterForm = document.querySelector('.newsletter');
+              
+              if (newsletterForm) {
+                  newsletterForm.addEventListener('submit', function(e) {
+                      e.preventDefault();
+                      
+                      const input = this.querySelector('.newsletter-input');
+                      
+                      if (input.value.trim() !== '') {
+                          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                          
+                          if (emailPattern.test(input.value.trim())) {
+                              // Success message
+                              const parent = this.parentNode;
+                              this.outerHTML = '<div class="newsletter-success" style="background-color: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; margin-top: 1.5rem;">Dziękujemy za zapisanie się do newslettera!</div>';
+                          } else {
+                              // Show error
+                              input.style.borderColor = 'red';
+                          }
+                      }
+                  });
+              }
+            }});
+      </script>
+  </body>
+  </html>
