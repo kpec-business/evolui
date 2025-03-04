@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalatorstwo Grzewcze Wrocław | Evolui</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #1abc9c;
+  --light-color: #F5F5FC;
+  --dark-color: #121212;
+  --text-color: #333;
+  --gradient-bg: linear-gradient(135deg, #3498db, #1abc9c);
+  --shadow-color: rgba(52, 152, 219, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-color);
+  overflow-x: hidden;
+  background-color: #FAFAFA;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(52, 152, 219, 0.95);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+nav.scrolled {
+  padding: 0.6rem 1rem;
+  background-color: rgba(44, 62, 80, 0.98);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active {
+  transform: rotate(90deg);
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav-links a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover:after {
+  width: 70%;
+}
+
+/* Service Detail Page Styles */
+.service-hero {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  background: var(--gradient-bg);
+  color: white;
+  text-align: center;
+}
+
+.service-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.service-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.service-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.service-section {
+  margin-bottom: 4rem;
+}
+
+.service-section h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.service-section h2:after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  margin: 10px 0 0;
+  border-radius: 2px;
+}
+
+.service-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.service-images {
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.service-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  height: 300px;
+}
+
+.service-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-image-container:hover img {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.cta-box {
+  background: var(--light-color);
+  padding: 3rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.cta-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-top: 1.5rem;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn:hover:before {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--gradient-bg);
+  color: white;
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 4rem 2rem 1rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section h4:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.footer-section p {
+  margin-bottom: 0.8rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .service-hero h1 {
+    font-size: 2.4rem;
+  }
+  
+  .service-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    padding: 6rem 2rem 2rem;
+    flex-direction: column;
+    text-align: left;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .service-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Preloader Styles */
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <h3>Evolui</h3>
+            <p>Ładowanie...</p>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-wrench"></i>
+                Evolui
+            </a>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Powrót do strony głównej</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="service-hero">
+        <h1>Instalatorstwo Grzewcze</h1>
+        <p>Profesjonalne instalacje grzewcze zapewniające komfort cieplny i oszczędność energii</p>
+    </section>
+
+    <div class="service-content">
+        <div class="service-section">
+            <h2>Ciepło i komfort przez cały rok</h2>
+            <p>W Evolui specjalizujemy się w projektowaniu, montażu i serwisowaniu nowoczesnych instalacji grzewczych dla klientów indywidualnych i biznesowych. Nasze rozwiązania zapewniają optymalną temperaturę w pomieszczeniach przez cały sezon grzewczy, przy jednoczesnej minimalizacji kosztów energii.</p>
+            <p>Dzięki wieloletniemu doświadczeniu w branży, nasi specjaliści doskonale orientują się w najnowszych technologiach i trendach. Pomagamy klientom w doborze optymalnych rozwiązań dostosowanych do ich potrzeb, możliwości technicznych i budżetu. Oferujemy kompleksową obsługę - od projektu, przez montaż, aż po serwis i wsparcie techniczne.</p>
+        </div>
+
+        <div class="service-features">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Kompleksowe wykonanie instalacji grzewczych</h3>
+                <p>Profesjonalne projektowanie i wykonywanie kompletnych systemów grzewczych dostosowanych do indywidualnych potrzeb i warunków technicznych.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                <h3>Przeróbki instalacji grzewczych</h3>
+                <p>Modernizacja i dostosowanie istniejących instalacji do nowych potrzeb, wymogów technicznych lub źródeł ciepła.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-burn"></i>
+                </div>
+                <h3>Ogrzewanie podłogowe hydrauliczne</h3>
+                <p>Montaż efektywnych systemów ogrzewania podłogowego zapewniających równomierny rozkład ciepła i komfort termiczny.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h3>Montaż pieców CO</h3>
+                <p>Profesjonalna instalacja i podłączenie kotłów gazowych, olejowych, elektrycznych i na paliwo stałe zgodnie z normami bezpieczeństwa.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Montaż mat grzewczych</h3>
+                <p>Instalacja elektrycznych systemów ogrzewania podłogowego i ściennego dla dodatkowego komfortu cieplnego.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-temperature-high"></i>
+                </div>
+                <h3>Montaż grzejników</h3>
+                <p>Wymiana, montaż i podłączenie grzejników różnego typu - panelowych, aluminiowych, płytowych i dekoracyjnych.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Inne usługi związane z instalacjami grzewczymi</h3>
+                <p>Optymalizacja istniejących systemów, regulacja, odpowietrzanie, naprawy oraz profesjonalne doradztwo techniczne.</p>
+            </div>
+        </div>
+
+        <div class="service-section">
+            <h2>Nowoczesne technologie grzewcze</h2>
+            <p>Współczesne systemy grzewcze to zaawansowane rozwiązania, które łączą w sobie wysoką efektywność energetyczną, komfort użytkowania i dbałość o środowisko. W Evolui oferujemy różnorodne systemy grzewcze dostosowane do różnych potrzeb i przestrzeni:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Ogrzewanie podłogowe</strong> - komfortowy i efektywny system zapewniający równomierny rozkład ciepła</li>
+                <li><strong>Kotły kondensacyjne</strong> - energooszczędne rozwiązanie wykorzystujące ciepło skraplania pary wodnej</li>
+                <li><strong>Pompy ciepła</strong> - ekologiczne systemy wykorzystujące energię z otoczenia do ogrzewania pomieszczeń</li>
+                <li><strong>Kominki z płaszczem wodnym</strong> - połączenie tradycyjnego kominka z możliwością ogrzewania całego budynku</li>
+                <li><strong>Systemy hybrydowe</strong> - inteligentne połączenie różnych źródeł ciepła dla maksymalnej efektywności</li>
+                <li><strong>Ogrzewanie elektryczne</strong> - nowoczesne maty i folie grzewcze, grzejniki elektryczne i systemy akumulacyjne</li>
+            </ul>
+            <p style="margin-top: 15px;">Współpracujemy z renomowanymi producentami, co pozwala nam oferować urządzenia i materiały o najwyższej jakości, efektywności energetycznej i niezawodności.</p>
+        </div>
+
+        <div class="service-section">
+            <h2>Ogrzewanie podłogowe hydrauliczne</h2>
+            <p>Ogrzewanie podłogowe hydrauliczne to jeden z najbardziej komfortowych i efektywnych systemów grzewczych dostępnych na rynku. Jego działanie opiera się na cyrkulacji ciepłej wody w rurach umieszczonych w posadzce, co zapewnia równomierny rozkład temperatury w pomieszczeniu.</p>
+            <p>W Evolui specjalizujemy się w profesjonalnym montażu systemów ogrzewania podłogowego. Wykonujemy zarówno instalacje w nowych budynkach, jak i podczas remontów istniejących obiektów. Nasi specjaliści dokładnie analizują potrzeby klienta i warunki techniczne, aby dobrać optymalne rozwiązanie.</p>
+            <p>Ogrzewanie podłogowe oferuje wiele korzyści:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Komfort termiczny</strong> - równomierne ogrzewanie od podłogi do sufitu, bez zimnych stref</li>
+                <li><strong>Oszczędność energii</strong> - efektywna praca przy niższych temperaturach zasilania</li>
+                <li><strong>Estetyka</strong> - brak widocznych grzejników pozwala na dowolną aranżację wnętrza</li>
+                <li><strong>Higiena</strong> - ograniczenie cyrkulacji kurzu i roztoczy w pomieszczeniu</li>
+                <li><strong>Trwałość</strong> - system praktycznie bezobsługowy o długiej żywotności</li>
+            </ul>
+        </div>
+
+        <div class="service-section">
+            <h2>Nasze realizacje</h2>
+            <p>Poniżej prezentujemy przykładowe realizacje instalacji grzewczych wykonane przez naszą firmę. Każdy projekt realizujemy indywidualnie, dostosowując rozwiązania do specyfiki budynku i potrzeb klienta.</p>
+            
+            <div class="service-images">
+                <div class="service-image-container">
+                    <div class="image-placeholder">
+                        <p>Miejsce na zdjęcie instalacji ogrzewania podłogowego<br>Wymiary: 500x300px</p>
+                    </div>
+                </div>
+                <div class="service-image-container">
+                    <div class="image-placeholder">
+                        <p>Miejsce na zdjęcie kotłowni<br>Wymiary: 500x300px</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-section">
+            <h2>Korzyści z profesjonalnie wykonanej instalacji grzewczej</h2>
+            <p>Inwestycja w profesjonalnie wykonaną instalację grzewczą przynosi wiele wymiernych korzyści:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Oszczędność energii</strong> - prawidłowo zaprojektowany i wykonany system grzewczy zużywa mniej energii</li>
+                <li><strong>Równomierny rozkład ciepła</strong> - eliminacja zimnych i przegrzanych stref w pomieszczeniach</li>
+                <li><strong>Niezawodność</strong> - minimalne ryzyko awarii i przestojów w dostawie ciepła</li>
+                <li><strong>Bezpieczeństwo</strong> - instalacja zgodna ze wszystkimi normami i przepisami</li>
+                <li><strong>Łatwość sterowania</strong> - możliwość precyzyjnej regulacji temperatury w każdym pomieszczeniu</li>
+                <li><strong>Trwałość</strong> - dłuższa żywotność całego systemu i jego poszczególnych elementów</li>
+                <li><strong>Wzrost wartości nieruchomości</strong> - budynki z nowoczesną instalacją grzewczą są wyżej wyceniane na rynku</li>
+            </ul>
+        </div>
+
+        <div class="service-section">
+            <h2>Serwis i konserwacja systemów grzewczych</h2>
+            <p>Regularny serwis i konserwacja są kluczowe dla utrzymania efektywności, bezpieczeństwa i długiej żywotności systemów grzewczych. W ramach naszych usług serwisowych oferujemy:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Przeglądy okresowe</strong> - kompleksowa kontrola poprawności działania systemu</li>
+                <li><strong>Czyszczenie kotłów i wymienników ciepła</strong> - usuwanie osadów i zanieczyszczeń poprawiające efektywność</li>
+                <li><strong>Regulacja parametrów pracy</strong> - optymalizacja działania systemu dla maksymalnej wydajności</li>
+                <li><strong>Odpowietrzanie instalacji</strong> - usuwanie powietrza z układu zapewniające prawidłowy przepływ czynnika grzewczego</li>
+                <li><strong>Kontrola szczelności</strong> - wykrywanie i usuwanie wycieków</li>
+                <li><strong>Wymiana zużytych elementów</strong> - zapobieganie poważniejszym awariom</li>
+                <li><strong>Naprawy</strong> - szybkie usuwanie wszelkich awarii i usterek</li>
+            </ul>
+            <p style="margin-top: 15px;">Zalecamy przeprowadzanie przeglądów systemów grzewczych przynajmniej raz w roku, przed rozpoczęciem sezonu grzewczego, co zapewni ich optymalną pracę i długą żywotność.</p>
+        </div>
+
+        <div class="service-section">
+            <h2>Proces realizacji</h2>
+            <p>Nasze podejście do każdego projektu instalacji grzewczej obejmuje kilka kluczowych etapów:</p>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Konsultacja i analiza potrzeb</strong> - szczegółowa rozmowa z klientem i określenie oczekiwań</li>
+                <li><strong>Wizja lokalna</strong> - dokładne pomiary i analiza warunków technicznych</li>
+                <li><strong>Przygotowanie projektu</strong> - dobór optymalnego rozwiązania i szczegółowy projekt systemu</li>
+                <li><strong>Bezpłatna wycena</strong> - przygotowanie przejrzystej oferty cenowej</li>
+                <li><strong>Realizacja</strong> - profesjonalny montaż zgodny z najwyższymi standardami</li>
+                <li><strong>Testy i rozruch</strong> - sprawdzenie szczelności, odpowietrzenie i pierwsze uruchomienie systemu</li>
+                <li><strong>Szkolenie użytkownika</strong> - instruktaż obsługi i optymalizacji pracy systemu</li>
+                <li><strong>Serwis i wsparcie</strong> - regularne przeglądy i wsparcie techniczne</li>
+            </ol>
+        </div>
+            
+        <div class="cta-box" id="kontakt">
+            <h3>Potrzebujesz fachowej instalacji grzewczej?</h3>
+            <p>Skontaktuj się z nami, aby umówić bezpłatną konsultację i poznać możliwości poprawy komfortu cieplnego w Twoim domu lub firmie.</p>
+            <a href="tel:+48787011313" class="btn btn-primary"><i class="fas fa-phone"></i> Zadzwoń: +48 787 011 313</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Evolui</h4>
+                <p>Profesjonalne usługi budowlane i instalacyjne dla domu i firmy</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Godziny Otwarcia</h4>
+                <p>Pogotowie hydrauliczne: 24/7</p>
+                <p>Poniedziałek - Piątek: 8:00 - 19:00</p>
+                <p>Sobota: Zamknięte</p>
+                <p>Niedziela: Zamknięte</p>
+            </div>
+            <div class="footer-section">
+                <h4>Szybki Kontakt</h4>
+                <p><i class="fas fa-map-marker-alt"></i> ul. Krępicka 1/6, 54-018 Wrocław</p>
+                <p><i class="fas fa-phone"></i> +48 787 011 313</p>
+                <p><i class="fas fa-envelope"></i> biuro.evolui@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Evolui Sp. z o.o. - Wszystkie prawa zastrzeżone | Strona internetowa stworzona przez kpstrony.pl
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preloader
+            setTimeout(function() {
+                document.querySelector('.preloader').style.display = 'none';
+                document.body.classList.add('loaded');
+            }, 1000);
+            
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: true,
+                offset: 100
+            });
+
+            // Navigation scroll effect
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                const scrollTop = window.scrollY;
+                
+                if (scrollTop > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile Navigation Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
