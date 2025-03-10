@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -397,10 +398,10 @@ nav.scrolled {
 }
 
 .gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: all 0.5s ease;
+  opacity: 1 !important;
+    display: block !important;
+    width: 100%;
+    height: auto;
 }
 
 .gallery-item:hover img {
@@ -408,17 +409,8 @@ nav.scrolled {
 }
 
 .gallery-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(26, 188, 156, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s;
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -426,7 +418,7 @@ nav.scrolled {
 }
 
 .gallery-overlay-content {
-  color: white;
+  color: #121212;
   text-align: center;
   padding: 1rem;
 }
@@ -434,6 +426,7 @@ nav.scrolled {
 .gallery-overlay-content h4 {
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
+  color: #121212;
 }
 
 /* Contact */
@@ -1259,7 +1252,7 @@ footer {
     <section id="start" class="hero">
         <div class="hero-content">
             <h1>Profesjonalne Usługi Budowlane i Instalacyjne Wrocław</h1>
-            <p>Evolui Sp z o.o. - Niezawodność i jakość od 2018 roku</p>
+            <p>Evolui Sp z o.o. - Niezawodność i jakość od 2015 roku</p>
             <a href="#contact" class="btn btn-primary ripple">Skontaktuj się</a>
             <a href="#services" class="btn btn-outline ripple">Nasze Usługi</a>
         </div>
@@ -1269,11 +1262,11 @@ footer {
     <section id="counter" class="counter-section">
         <div class="counter-container">
             <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="counter-value" data-target="15">0</div>
+                <div class="counter-value" data-target="8">0</div>
                 <div class="counter-title">Wykwalifikowanych Pracowników</div>
             </div>
             <div class="counter-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="counter-value" data-target="7">0</div>
+                <div class="counter-value" data-target="10">0</div>
                 <div class="counter-title">Lat Doświadczenia</div>
             </div>
             <div class="counter-item" data-aos="fade-up" data-aos-delay="400">
@@ -1290,7 +1283,7 @@ footer {
                     <h2>Kim Jesteśmy</h2>
                     <div class="about-text">
                         <p>
-                            Evolui Sp. z o.o. to doświadczona firma budowlana i instalacyjna, oferująca kompleksowe usługi dla domów i firm. Od 2018 roku zapewniamy naszym klientom wysokiej jakości usługi z gwarancją solidności i profesjonalizmu.
+                            Evolui Sp. z o.o. to doświadczona firma budowlana i instalacyjna, oferująca kompleksowe usługi dla domów i firm. Od 2015 roku zapewniamy naszym klientom wysokiej jakości usługi z gwarancją solidności i profesjonalizmu.
                         </p>
                         <p>
                             Nasz zespół składa się z wykwalifikowanych pracowników z wieloletnim doświadczeniem. Stosujemy nowoczesne technologie i najlepsze materiały, aby zapewnić trwałe i skuteczne rozwiązania.
@@ -1341,43 +1334,7 @@ footer {
     <section id="services" class="services">
         <h2 data-aos="fade-up">Nasze Usługi</h2>
         <div class="services-grid">
-          <a href="h.html" style="text-decoration: none; color: inherit;">
-            <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="service-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>Usługi Hydrauliczne</h3>
-                <p>Kompleksowe wykonanie instalacji hydraulicznych i pogotowie hydrauliczne</p>
-            </div>
-            </a>
-            <a href="oze.html" style="text-decoration: none; color: inherit;">
-            <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="service-icon">
-                    <i class="fas fa-water"></i>
-                </div>
-                <h3>Odnawialne Źródła Energii</h3>
-                <p>Instalacja i serwis pomp ciepła oraz innych odnawialnych źródeł energii</p>
-            </div>
-            </a>
-            <a href="vent.html" style="text-decoration: none; color: inherit;">
-            <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="service-icon">
-                    <i class="fas fa-wind"></i>
-                </div>
-                <h3>Montaż Wentylacji i Rekuperacji</h3>
-                <p>Montaż rekuperacji oraz serwis wentylacji w domach i firmach</p>
-            </div>
-            </a>
-            <a href="klima.html" style="text-decoration: none; color: inherit;">
-              <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="service-icon">
-                      <i class="fas fa-snowflake"></i>
-                  </div>
-                  <h3>Klimatyzacja</h3>
-                  <p>Profesjonalny montaż i serwis klimatyzacji w domach i biurach</p>
-              </div>
-          </a>
-          <a href="grzewcze.html" style="text-decoration: none; color: inherit;">
+          <a href="instalatorstwo-grzewcze-wroclaw.html" style="text-decoration: none; color: inherit;">
             <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
                 <div class="service-icon">
                     <i class="fas fa-temperature-high"></i>
@@ -1386,7 +1343,52 @@ footer {
                 <p>Ogrzewanie podłogowe, montaż pieców CO i mat grzewczych</p>
             </div>
             </a>
-            <a href="gaz.html" style="text-decoration: none; color: inherit;">
+            <a href="wentylacje-rekuperacje-wroclaw.html" style="text-decoration: none; color: inherit;">
+              <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="service-icon">
+                      <i class="fas fa-wind"></i>
+                  </div>
+                  <h3>Montaż Wentylacji i Rekuperacji</h3>
+                  <p>Montaż rekuperacji oraz serwis wentylacji w domach i firmach</p>
+              </div>
+              </a>
+              <a href="klimatyzacja-wroclaw.html" style="text-decoration: none; color: inherit;">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Klimatyzacja</h3>
+                    <p>Profesjonalny montaż i serwis klimatyzacji w domach i biurach</p>
+                </div>
+            </a>
+            <a href="budownictwo-wroclaw.html" style="text-decoration: none; color: inherit;">
+              <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Budownictwo</h3>
+                <p>Kompleksowe usługi budowlane obejmujące budowę domów do stanu deweloperskiego, gotowych do wykończenia.</p>
+            </div>
+            </a>
+          <a href="uslugi-hydrauliczne-wroclaw.html" style="text-decoration: none; color: inherit;">
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Usługi Hydrauliczne</h3>
+                <p>Kompleksowe wykonanie instalacji hydraulicznych i pogotowie hydrauliczne</p>
+            </div>
+            </a>
+            <a href="oze-wroclaw.html" style="text-decoration: none; color: inherit;">
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Odnawialne Źródła Energii</h3>
+                <p>Instalacja i serwis pomp ciepła oraz innych odnawialnych źródeł energii</p>
+            </div>
+            </a>
+            <a href="uslugi-gazowe-wroclaw.html" style="text-decoration: none; color: inherit;">
             <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
                 <div class="service-icon">
                     <i class="fas fa-fire-alt"></i>
@@ -1394,15 +1396,6 @@ footer {
                 <h3>Usługi Gazowe</h3>
                 <p>Montaż pieców gazowych oraz serwis instalacji gazowych</p>
             </div>
-            </a>
-            <a href="budowa.html" style="text-decoration: none; color: inherit;">
-            <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
-              <div class="service-icon">
-                  <i class="fas fa-building"></i>
-              </div>
-              <h3>Budowa do Stanu Deweloperskiego</h3>
-              <p>Kompleksowa budowa domów do stanu deweloperskiego, gotowych do wykończenia</p>
-          </div>
           </a>
         </div>
     </section>
@@ -1460,58 +1453,22 @@ footer {
         <h2 data-aos="fade-up">Nasze Realizacje</h2>
         <div class="gallery-grid">
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="/api/placeholder/400/300" alt="Modernizacja łazienki" class="lazy-load" data-src="/api/placeholder/400/300">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <h4>Modernizacja łazienki</h4>
-                        <p>Kompleksowy remont z wymianą instalacji</p>
-                    </div>
-                </div>
+                <img src="realizacja1.jpeg" alt="Modernizacja łazienki" class="lazy-load" data-src="/api/placeholder/400/300">
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                <img src="/api/placeholder/400/300" alt="Instalacja kotła gazowego" class="lazy-load" data-src="/api/placeholder/400/300">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <h4>Montaż kotła gazowego</h4>
-                        <p>Nowoczesny system ogrzewania w domu jednorodzinnym</p>
-                    </div>
-                </div>
+                <img src="realizacja2.jpg" alt="Instalacja kotła gazowego" class="lazy-load" data-src="/api/placeholder/400/300">
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="/api/placeholder/400/300" alt="Udrażnianie kanalizacji" class="lazy-load" data-src="/api/placeholder/400/300">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <h4>Udrażnianie kanalizacji</h4>
-                        <p>Profesjonalne czyszczenie rur specjalistycznym sprzętem</p>
-                    </div>
-                </div>
+                <img src="realizacja3.jpg" alt="Udrażnianie kanalizacji" class="lazy-load" data-src="/api/placeholder/400/300">
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
-                <img src="/api/placeholder/400/300" alt="Instalacja przemysłowa" class="lazy-load" data-src="/api/placeholder/400/300">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <h4>Instalacja przemysłowa</h4>
-                        <p>System wodociągowy w zakładzie produkcyjnym</p>
-                    </div>
-                </div>
+                <img src="realizacja4.jpg" alt="Instalacja przemysłowa" class="lazy-load" data-src="/api/placeholder/400/300">
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <img src="/api/placeholder/400/300" alt="Wymiana grzejników" class="lazy-load" data-src="/api/placeholder/400/300">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <h4>Wymiana grzejników</h4>
-                        <p>Montaż nowoczesnych grzejników w mieszkaniu</p>
-                    </div>
-                </div>
+                <img src="realizacja5.jpg" alt="Wymiana grzejników" class="lazy-load" data-src="/api/placeholder/400/300">
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
-                <img src="/api/placeholder/400/300" alt="Naprawa wycieku" class="lazy-load" data-src="/api/placeholder/400/300">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <h4>Naprawa wycieku</h4>
-                        <p>Szybka interwencja i lokalizacja ukrytego wycieku</p>
-                    </div>
-                </div>
+              <img src="realizacja6.jpg" alt="Modernizacja łazienki" class="lazy-load">
             </div>
         </div>
     </section>
