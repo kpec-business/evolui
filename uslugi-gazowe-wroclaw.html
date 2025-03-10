@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usługi Gazowe Wrocław | Evolui</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #1abc9c;
+  --light-color: #F5F5FC;
+  --dark-color: #121212;
+  --text-color: #333;
+  --gradient-bg: linear-gradient(135deg, #3498db, #1abc9c);
+  --shadow-color: rgba(52, 152, 219, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-color);
+  overflow-x: hidden;
+  background-color: #FAFAFA;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(52, 152, 219, 0.95);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+nav.scrolled {
+  padding: 0.6rem 1rem;
+  background-color: rgba(44, 62, 80, 0.98);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active {
+  transform: rotate(90deg);
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav-links a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover:after {
+  width: 70%;
+}
+
+/* Service Detail Page Styles */
+.service-hero {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  background: var(--gradient-bg);
+  color: white;
+  text-align: center;
+}
+
+.service-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.service-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.service-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.service-section {
+  margin-bottom: 4rem;
+}
+
+.service-section h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.service-section h2:after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  margin: 10px 0 0;
+  border-radius: 2px;
+}
+
+.service-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.service-images {
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.service-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  height: 300px;
+}
+
+.service-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-image-container:hover img {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.cta-box {
+  background: var(--light-color);
+  padding: 3rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.cta-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-top: 1.5rem;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn:hover:before {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--gradient-bg);
+  color: white;
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 4rem 2rem 1rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section h4:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.footer-section p {
+  margin-bottom: 0.8rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .service-hero h1 {
+    font-size: 2.4rem;
+  }
+  
+  .service-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    padding: 6rem 2rem 2rem;
+    flex-direction: column;
+    text-align: left;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .service-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Preloader Styles */
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <h3>Evolui</h3>
+            <p>Ładowanie...</p>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-wrench"></i>
+                Evolui
+            </a>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Powrót do strony głównej</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="service-hero">
+        <h1>Usługi Gazowe</h1>
+        <p>Profesjonalny montaż pieców gazowych i usługi związane z instalacjami gazowymi</p>
+    </section>
+
+    <div class="service-content">
+        <div class="service-section">
+            <h2>Bezpieczeństwo i wydajność instalacji gazowych</h2>
+            <p>W Evolui specjalizujemy się w profesjonalnym montażu pieców gazowych oraz innych usługach związanych z instalacjami gazowymi. Nasze rozwiązania zapewniają nie tylko komfort cieplny, ale przede wszystkim pełne bezpieczeństwo użytkowania.</p>
+            <p>Dzięki wieloletniemu doświadczeniu w branży, nasi specjaliści posiadają odpowiednie kwalifikacje i uprawnienia do pracy z instalacjami gazowymi. Wykonujemy wszystkie prace zgodnie z obowiązującymi normami i przepisami, dbając o najwyższe standardy bezpieczeństwa.</p>
+        </div>
+
+        <div class="service-features">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h3>Montaż pieców gazowych</h3>
+                <p>Profesjonalna instalacja nowoczesnych, energooszczędnych pieców gazowych różnych producentów, zapewniających efektywne ogrzewanie i ciepłą wodę użytkową.</p>
+            </div>
+        </div>
+
+        <div class="service-section">
+            <h2>Montaż pieców gazowych</h2>
+            <p>Specjalizujemy się w profesjonalnym montażu różnego rodzaju pieców gazowych, zarówno w nowych instalacjach, jak i przy wymianie starych urządzeń. Nasza oferta obejmuje:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Kondensacyjne kotły gazowe</strong> - energooszczędne rozwiązania wykorzystujące ciepło skraplania pary wodnej</li>
+                <li><strong>Kotły dwufunkcyjne</strong> - zapewniające zarówno ogrzewanie, jak i ciepłą wodę użytkową</li>
+                <li><strong>Kotły jednofunkcyjne</strong> - dedykowane do systemów centralnego ogrzewania</li>
+                <li><strong>Kotły wiszące</strong> - kompaktowe rozwiązania idealne do mniejszych przestrzeni</li>
+                <li><strong>Kotły stojące</strong> - wydajne urządzenia do większych budynków</li>
+            </ul>
+            <p style="margin-top: 15px;">W ramach montażu pieca gazowego oferujemy kompleksową usługę obejmującą:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Dobór odpowiedniego urządzenia dostosowanego do potrzeb i warunków technicznych</li>
+                <li>Montaż kotła zgodnie z zaleceniami producenta i obowiązującymi przepisami</li>
+                <li>Podłączenie do instalacji gazowej, wodnej i centralnego ogrzewania</li>
+                <li>Podłączenie odprowadzenia spalin i kondensatu</li>
+                <li>Montaż sterowników i regulatorów temperatury</li>
+                <li>Uruchomienie i konfigurację urządzenia</li>
+                <li>Szkolenie z obsługi i podstawowej konserwacji</li>
+                <li>Komplet dokumentacji technicznej i gwarancyjnej</li>
+            </ul>
+            <p style="margin-top: 15px;">Współpracujemy z renomowanymi producentami kotłów gazowych, co pozwala nam oferować urządzenia o najwyższej jakości, efektywności energetycznej i niezawodności.</p>
+        </div>
+
+        <div class="service-section">
+            <h2>Korzyści z nowoczesnych pieców gazowych</h2>
+            <p>Inwestycja w nowoczesny piec gazowy przynosi wiele wymiernych korzyści:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Oszczędność energii</strong> - nowoczesne kotły kondensacyjne pozwalają zaoszczędzić do 30% gazu w porównaniu ze starszymi modelami</li>
+                <li><strong>Ekologia</strong> - niższa emisja szkodliwych substancji do atmosfery</li>
+                <li><strong>Komfort użytkowania</strong> - automatyczna regulacja temperatury i programowanie pracy</li>
+                <li><strong>Cicha praca</strong> - współczesne modele charakteryzują się cichą pracą</li>
+                <li><strong>Kompaktowe wymiary</strong> - mniejsze gabaryty pozwalają na instalację w ograniczonej przestrzeni</li>
+                <li><strong>Bezpieczeństwo</strong> - zaawansowane systemy zabezpieczeń</li>
+                <li><strong>Możliwość integracji z systemami smart home</strong> - sterowanie przez aplikację mobilną</li>
+                <li><strong>Długa żywotność</strong> - przy regularnym serwisowaniu nawet 15-20 lat</li>
+            </ul>
+        </div>
+
+        <div class="service-section">
+            <h2>Nasze realizacje</h2>
+            <p>Poniżej prezentujemy przykładowe realizacje montażu pieców gazowych wykonane przez naszą firmę. Każdy projekt realizujemy indywidualnie, dostosowując rozwiązania do specyfiki budynku i potrzeb klienta.</p>
+            
+            <div class="service-images">
+              <div class="service-image-container">
+                <img src="gaz1.jpg" alt="Brakuje zdjęcia">
+            </div>
+            <div class="service-image-container">
+              <img src="gaz2.jpg" alt="Brakuje zdjęcia">
+          </div>
+        </div>
+
+        <div class="service-section">
+            <h2>Bezpieczeństwo instalacji gazowych</h2>
+            <p>Bezpieczeństwo instalacji gazowych jest naszym priorytetem. Wszystkie prace wykonujemy zgodnie z najwyższymi standardami i obowiązującymi przepisami. Nasze usługi obejmują:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Montaż zgodny z przepisami</strong> - przestrzegamy wszystkich norm i wytycznych dotyczących instalacji gazowych</li>
+                <li><strong>Próby szczelności</strong> - dokładne sprawdzenie szczelności instalacji przed uruchomieniem</li>
+                <li><strong>Odpowiednia wentylacja</strong> - zapewnienie prawidłowej wentylacji pomieszczeń z urządzeniami gazowymi</li>
+                <li><strong>Profesjonalne odprowadzenie spalin</strong> - montaż systemów kominowych zgodnych z wymogami</li>
+                <li><strong>Detektory gazu</strong> - instalacja czujników wykrywających nieszczelności</li>
+                <li><strong>Dokumentacja techniczna</strong> - kompletna dokumentacja powykonawcza</li>
+            </ul>
+            <p style="margin-top: 15px;">Nasi instalatorzy posiadają odpowiednie uprawnienia gazowe oraz wieloletnie doświadczenie, co gwarantuje najwyższą jakość i bezpieczeństwo wykonywanych prac.</p>
+        </div>
+
+        <div class="service-section">
+            <h2>Serwis i konserwacja pieców gazowych</h2>
+            <p>Regularny serwis i konserwacja są kluczowe dla utrzymania efektywności, bezpieczeństwa i długiej żywotności pieców gazowych. W ramach naszych usług serwisowych oferujemy:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Przeglądy okresowe</strong> - kompleksowa kontrola poprawności działania kotła</li>
+                <li><strong>Czyszczenie wymiennika ciepła</strong> - usuwanie osadów poprawiające efektywność</li>
+                <li><strong>Kontrola szczelności</strong> - wykrywanie potencjalnych nieszczelności</li>
+                <li><strong>Regulacja parametrów pracy</strong> - optymalizacja działania dla maksymalnej wydajności</li>
+                <li><strong>Wymiana zużytych elementów</strong> - zapobieganie poważniejszym awariom</li>
+                <li><strong>Naprawy</strong> - szybkie usuwanie wszelkich awarii i usterek</li>
+            </ul>
+            <p style="margin-top: 15px;">Zalecamy przeprowadzanie przeglądów pieców gazowych przynajmniej raz w roku, co jest również wymogiem większości producentów dla zachowania gwarancji.</p>
+        </div>
+
+        <div class="service-section">
+            <h2>Proces realizacji</h2>
+            <p>Nasze podejście do montażu pieców gazowych obejmuje kilka kluczowych etapów:</p>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Konsultacja i analiza potrzeb</strong> - szczegółowa rozmowa z klientem i określenie oczekiwań</li>
+                <li><strong>Wizja lokalna</strong> - dokładne pomiary i analiza warunków technicznych</li>
+                <li><strong>Dobór urządzenia</strong> - przedstawienie optymalnych rozwiązań dostosowanych do potrzeb</li>
+                <li><strong>Bezpłatna wycena</strong> - przygotowanie przejrzystej oferty cenowej</li>
+                <li><strong>Realizacja</strong> - profesjonalny montaż zgodny z najwyższymi standardami</li>
+                <li><strong>Próby szczelności i testy</strong> - dokładne sprawdzenie szczelności i poprawności działania</li>
+                <li><strong>Uruchomienie</strong> - pierwsze uruchomienie i konfiguracja parametrów pracy</li>
+                <li><strong>Szkolenie użytkownika</strong> - instruktaż obsługi i podstawowej konserwacji</li>
+                <li><strong>Przekazanie dokumentacji</strong> - komplet dokumentów technicznych i gwarancyjnych</li>
+                <li><strong>Serwis i wsparcie</strong> - regularne przeglądy i wsparcie techniczne</li>
+            </ol>
+        </div>
+            
+        <div class="cta-box" id="kontakt">
+            <h3>Potrzebujesz montażu pieca gazowego?</h3>
+            <p>Skontaktuj się z nami, aby umówić bezpłatną konsultację i poznać możliwości poprawy efektywności ogrzewania w Twoim domu lub firmie.</p>
+            <a href="tel:+48787011313" class="btn btn-primary"><i class="fas fa-phone"></i> Zadzwoń: +48 787 011 313</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Evolui</h4>
+                <p>Profesjonalne usługi budowlane i instalacyjne dla domu i firmy</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Godziny Otwarcia</h4>
+                <p>Pogotowie hydrauliczne: 24/7</p>
+                <p>Poniedziałek - Piątek: 8:00 - 19:00</p>
+                <p>Sobota: Zamknięte</p>
+                <p>Niedziela: Zamknięte</p>
+            </div>
+            <div class="footer-section">
+                <h4>Szybki Kontakt</h4>
+                <p><i class="fas fa-map-marker-alt"></i> ul. Krępicka 1/6, 54-018 Wrocław</p>
+                <p><i class="fas fa-phone"></i> +48 787 011 313</p>
+                <p><i class="fas fa-envelope"></i> biuro.evolui@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Evolui Sp. z o.o. - Wszystkie prawa zastrzeżone | Strona internetowa stworzona przez kpstrony.pl
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preloader
+            setTimeout(function() {
+                document.querySelector('.preloader').style.display = 'none';
+                document.body.classList.add('loaded');
+            }, 1000);
+            
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: true,
+                offset: 100
+            });
+
+            // Navigation scroll effect
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                const scrollTop = window.scrollY;
+                
+                if (scrollTop > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile Navigation Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
